@@ -4,15 +4,21 @@
 
 ### Hardware
 
-  * iPhone 12 Pro/Pro Max
-  * Windows PC
+    * iPhone 12 Pro/Pro Max
+    * Windows PC
 
-### Software
 
-   * Windows 10
-   * Python 3.8.10
-   * opencv-python 4.5.3.56
-   * record3d 1.3.0
+### iPhone App
+
+    * Record3D 1.6.1
+
+### PC Software
+
+    * Windows 10
+    * Python 3.8.10
+    * Python Package
+        - opencv-python 4.5.3.56
+        - record3d 1.3.0
 
 ## Install
 
