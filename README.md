@@ -19,6 +19,7 @@
     * Python Package
         - opencv-python 4.5.3.56
         - record3d 1.3.0
+        - open3d 0.13.0
 
 ## Install
 
