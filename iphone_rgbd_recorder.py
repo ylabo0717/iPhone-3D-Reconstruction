@@ -14,6 +14,9 @@ FILENAME_ZEROFILL = 6
 CONFIG_FILENAME = "config.json"
 CAMERA_INTRINSIC_FILENAME = "camera_intrinsic.json"
 REC_COUNT_INIT = 1
+DEPTH_COLORIZE_FIXED_RANGE = True
+DEPTH_COLORIZE_MIN = 0
+DEPTH_COLORIZE_MAX = 3000
 
 class RecorderApp:
     def __init__(self):
@@ -118,8 +121,29 @@ class RecorderApp:
         depth = self.resize_depth_image(color, depth_mm_u16)
         return color, depth
 
+    def normalize_min_max(self, x, min, max):
+        diff_max_min = max - min
+        result = x
+        if diff_max_min != 0:
+            result = (x - min) / (max - min)
+        return result
+
+    def colorize_depth(self, depth):
+        min = 0
+        max = 65535
+        if DEPTH_COLORIZE_FIXED_RANGE:
+            min = DEPTH_COLORIZE_MIN
+            max = DEPTH_COLORIZE_MAX
+        else:
+            min = depth.min()
+            max = depth.max()
+        depth_clipped = np.clip(depth.astype(np.uint16), min, max)
+        depth_normalized = self.normalize_min_max(depth_clipped, min, max)
+        depth_colored = cv2.applyColorMap(cv2.convertScaleAbs(depth_normalized, alpha=255.0), cv2.COLORMAP_JET)
+        return depth_colored
+
     def show_image(self, color, depth):
-        depth_colored = cv2.applyColorMap(cv2.convertScaleAbs(depth, alpha=0.03), cv2.COLORMAP_JET)
+        depth_colored = self.colorize_depth(depth)
         image_display = cv2.hconcat([color, depth_colored])
         cv2.imshow('iPhone RGB-D', image_display)
 
