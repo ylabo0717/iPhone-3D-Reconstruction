@@ -1,0 +1,12 @@
+{
+    "sub_dir_color": "color/",
+    "sub_dir_depth": "depth/",
+    "filename_zerofill": 6,
+    "intrinsic_filename": "camera_intrinsic.json",
+    "frme_count_init": 1,
+    "config_filename": "config.json",
+    "dir_name_format": "%Y-%m-%d_%H%M%S",
+    "depth_colorize_fixed_range": true,
+    "depth_colorize_min": 0,
+    "depth_colorize_max": 3000
+}

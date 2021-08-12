@@ -7,19 +7,10 @@ import json
 from record3d import Record3DStream
 
 ROOT_RECORD_DIR_NAME = os.getcwd().replace(os.sep,'/') + '/data/'
-DIR_NAME_FORMAT = '%Y-%m-%d_%H%M%S'
-SUB_DIR_COLOR = 'color/'
-SUB_DIR_DEPTH = 'depth/'
-FILENAME_ZEROFILL = 6
-CONFIG_FILENAME = "config.json"
-CAMERA_INTRINSIC_FILENAME = "camera_intrinsic.json"
-REC_COUNT_INIT = 1
-DEPTH_COLORIZE_FIXED_RANGE = True
-DEPTH_COLORIZE_MIN = 0
-DEPTH_COLORIZE_MAX = 3000
 
 class RecorderApp:
     def __init__(self):
+        self.load_app_config('app_config.json')
         self.event = Event()
         self.session = None
         self.activate = False
@@ -27,6 +18,20 @@ class RecorderApp:
         self.recorddir_root = ROOT_RECORD_DIR_NAME
         if not os.path.exists(self.recorddir_root):
             os.makedirs(self.recorddir_root)
+
+    def load_app_config(self, filename):
+        input_file = open(filename, 'r')
+        j = json.load(input_file)
+        self.sub_dir_color = j['sub_dir_color']
+        self.sub_dir_depth = j['sub_dir_depth']
+        self.filename_zerofill = j['filename_zerofill']
+        self.intrinsic_filename = j['intrinsic_filename']
+        self.frame_count_init = j['frme_count_init']
+        self.config_filename = j['config_filename']
+        self.dir_name_format = j['dir_name_format']
+        self.depth_colorize_fixed_range = j['depth_colorize_fixed_range']
+        self.depth_colorize_min = j['depth_colorize_min']
+        self.depth_colorize_max = j['depth_colorize_max']
 
     def on_new_frame(self):
         self.event.set()
@@ -56,10 +61,10 @@ class RecorderApp:
 
     def make_record_dir(self):
         now = datetime.datetime.now()
-        self.recorddir = self.recorddir_root + now.strftime(DIR_NAME_FORMAT) + "/"
+        self.recorddir = self.recorddir_root + now.strftime(self.dir_name_format) + "/"
         os.makedirs(self.recorddir)
-        os.makedirs(self.recorddir + SUB_DIR_COLOR)
-        os.makedirs(self.recorddir + SUB_DIR_DEPTH)
+        os.makedirs(self.recorddir + self.sub_dir_color)
+        os.makedirs(self.recorddir + self.sub_dir_depth)
 
     def save_config_as_json(self, filename):
         with open(filename, 'w') as outfile:
@@ -67,7 +72,7 @@ class RecorderApp:
                 {
                     "name": "iPhone LiDAR 3D Reconstruction",
                     "path_dataset": self.recorddir,
-                    "path_intrinsic": self.recorddir + CAMERA_INTRINSIC_FILENAME,
+                    "path_intrinsic": self.recorddir + self.intrinsic_filename,
                     "max_depth": 3.0,
                     "voxel_size": 0.05,
                     "max_depth_diff": 0.07,
@@ -100,8 +105,8 @@ class RecorderApp:
 
     def initialize_recording(self, frame):
         self.make_record_dir()
-        self.save_config_as_json(self.recorddir + CONFIG_FILENAME)
-        self.save_intrinsic_as_json(self.recorddir + CAMERA_INTRINSIC_FILENAME, frame)
+        self.save_config_as_json(self.recorddir + self.config_filename)
+        self.save_intrinsic_as_json(self.recorddir + self.intrinsic_filename, frame)
 
     def resize_depth_image(self, color, depth):
         color_width = color.shape[1]
@@ -131,9 +136,9 @@ class RecorderApp:
     def colorize_depth(self, depth):
         min = 0
         max = 65535
-        if DEPTH_COLORIZE_FIXED_RANGE:
-            min = DEPTH_COLORIZE_MIN
-            max = DEPTH_COLORIZE_MAX
+        if self.depth_colorize_fixed_range:
+            min = self.depth_colorize_min
+            max = self.depth_colorize_max
         else:
             min = depth.min()
             max = depth.max()
@@ -148,12 +153,12 @@ class RecorderApp:
         cv2.imshow('iPhone RGB-D', image_display)
 
     def save_rgbd_images(self, color, depth, rec_count):
-        filename = str(rec_count).zfill(FILENAME_ZEROFILL)
-        cv2.imwrite(self.recorddir + SUB_DIR_COLOR + filename + ".jpg", color)
-        cv2.imwrite(self.recorddir + SUB_DIR_DEPTH + filename + ".png", depth)
+        filename = str(rec_count).zfill(self.filename_zerofill)
+        cv2.imwrite(self.recorddir + self.sub_dir_color + filename + ".jpg", color)
+        cv2.imwrite(self.recorddir + self.sub_dir_depth + filename + ".png", depth)
 
     def start_processing_stream(self):
-        rec_count = REC_COUNT_INIT
+        rec_count = self.frame_count_init
 
         while self.activate:
             self.event.wait()
@@ -171,7 +176,7 @@ class RecorderApp:
                 break
 
             if self.recording:
-                if rec_count == REC_COUNT_INIT:
+                if rec_count == self.frame_count_init:
                     self.initialize_recording(color)
                 self.save_rgbd_images(color, depth, rec_count)
                 rec_count = rec_count + 1
