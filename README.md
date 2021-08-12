@@ -48,13 +48,13 @@ pipenv shell
 
 ### Recording
 
-1. [iPhone]Connect your iPhone to your PC via USB.
+1. [iPhone] Connect your iPhone to your PC via USB.
 
-2. [iPhone]Launch the Record3D app on your iPhone.
+2. [iPhone] Launch the Record3D app on your iPhone.
 
     <img src="images/Record3D_001.png" width="256">
 
-3. [iPhone]Change Record3D Settings
+3. [iPhone] Change Record3D Settings
 
     <img src="images/Record3D_002.png" width="256">
 
@@ -64,17 +64,17 @@ pipenv shell
 | Higher quality LiDAR recording  | ON (Optional) |
 
 
-4. [iPhone]Start Recording
+4. [iPhone] Start Recording
 
     <img src="images/Record3D_003.png" width="256">
 
-5. [PC]Execute Recoder on your PC.
+5. [PC] Execute Recoder on your PC.
 
 ```bash
 python iphone_rgbd_recorder.py
 ```
 
-6. [PC]Press the 'r' key in the RGBD Viewer window to start recording.
+6. [PC] Press the 'r' key in the RGBD Viewer window to start recording.
 
 ### Visualize
 
