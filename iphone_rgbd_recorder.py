@@ -79,7 +79,7 @@ class RecorderApp:
                     "preference_loop_closure_odometry": 0.1,
                     "preference_loop_closure_registration": 5.0,
                     "tsdf_cubic_size": 3.0,
-                    "icp_method": "depth",
+                    "icp_method": "color",
                     "global_registration": "ransac",
                     "python_multi_threading": True
                 },
