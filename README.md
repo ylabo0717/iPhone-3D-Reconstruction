@@ -7,7 +7,6 @@
     * iPhone 12 Pro/Pro Max
     * Windows PC
 
-
 ### iPhone App
 
     * Record3D 1.6.1
@@ -38,7 +37,15 @@
 * Git Clone and Install Package
 
 ```bash
-git clone https://github.com/ylabo0717/iPhone-RGBD-Recorder.git
+git clone --recursive https://github.com/ylabo0717/iPhone-RGBD-Recorder.git
+
+# You can also update the submodule manually
+git submodule update --init --recursive
+```
+
+* Install Package (Sync Virtual Envirioment)
+
+```bash
 cd iPhone-RGBD-Recorder
 pipenv sync
 pipenv shell
@@ -80,14 +87,27 @@ python iphone_rgbd_recorder.py
 
 ```bash
 python visualizer.py <data path>
+
+#example
+python .\visualizer.py .\data\2021-08-13_012134
 ```
 
 ### 3D Reconstrucion (VoxelHashingGUI)
 
 ```bash
-./VoxelHashingGUI.bat <data path>
+.\VoxelHashingGUI.bat <data path>
+
+# example
+.\VoxelHashingGUI.bat .\data\2021-08-13_012134
 ```
 
+### 3D Reconstrucion (Open3D Reconstruction System)
 
+```bash
+.\Reconstruction.bat <config file path>
+
+# example
+.\Reconstruction.bat .\data\2021-08-13_012134\config.json
+```
 
 

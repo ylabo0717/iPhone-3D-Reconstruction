@@ -38,7 +38,6 @@ class VisualizerApp:
 
     def key_callback(self, vis):
         self.frame_count = self.frame_count + 1
-        print(self.frame_count)
         return True
 
     def process(self):

@@ -7,6 +7,8 @@ name = "pypi"
 opencv-python = "*"
 record3d = "*"
 open3d = "*"
+matplotlib = "*"
+joblib = "*"
 
 [dev-packages]
 
