@@ -84,9 +84,10 @@ python visualizer.py <data path>
 
 ### 3D Reconstrucion (VoxelHashingGUI)
 
-```
+```bash
 ./VoxelHashingGUI.bat <data path>
 ```
+
 
 
 
