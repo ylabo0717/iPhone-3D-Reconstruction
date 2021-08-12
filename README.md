@@ -1,1 +1,1 @@
-# iPhone-RGBD-Recorder
+# iPhone-LiDAR-Study
