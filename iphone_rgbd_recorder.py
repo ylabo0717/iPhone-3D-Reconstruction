@@ -148,9 +148,9 @@ class RecorderApp:
         cv2.imshow('iPhone RGB-D', image_display)
 
     def save_rgbd_images(self, color, depth, rec_count):
-        filename = str(rec_count).zfill(FILENAME_ZEROFILL) + ".png"
-        cv2.imwrite(self.recorddir + SUB_DIR_COLOR + filename, color)
-        cv2.imwrite(self.recorddir + SUB_DIR_DEPTH + filename, depth)
+        filename = str(rec_count).zfill(FILENAME_ZEROFILL)
+        cv2.imwrite(self.recorddir + SUB_DIR_COLOR + filename + ".jpg", color)
+        cv2.imwrite(self.recorddir + SUB_DIR_DEPTH + filename + ".png", depth)
 
     def start_processing_stream(self):
         rec_count = REC_COUNT_INIT
