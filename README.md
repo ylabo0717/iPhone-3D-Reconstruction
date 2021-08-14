@@ -95,7 +95,11 @@ python .\visualizer.py .\data\2021-08-13_012134
 ### 3D Reconstrucion (VoxelHashingGUI)
 
 ```bash
+# CPU
 .\VoxelHashingGUI.bat <data path>
+
+# CUDA
+.\VoxelHashingGUI_cuda.bat <data path>
 
 # example
 .\VoxelHashingGUI.bat .\data\2021-08-13_012134
