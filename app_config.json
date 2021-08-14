@@ -9,5 +9,6 @@
     "dir_name_format": "%Y-%m-%d_%H%M%S",
     "depth_colorize_fixed_range": true,
     "depth_colorize_min": 0,
-    "depth_colorize_max": 3000
+    "depth_colorize_max": 3000,
+    "record_display_image":true
 }

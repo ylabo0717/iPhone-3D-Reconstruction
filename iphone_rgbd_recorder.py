@@ -33,6 +33,7 @@ class RecorderApp:
         self.depth_colorize_fixed_range = j['depth_colorize_fixed_range']
         self.depth_colorize_min = j['depth_colorize_min']
         self.depth_colorize_max = j['depth_colorize_max']
+        self.record_display_image = j['record_display_image']
 
     def on_new_frame(self):
         self.event.set()
@@ -105,10 +106,21 @@ class RecorderApp:
                 outfile,
                 indent=4)
 
-    def initialize_recording(self, frame):
+    def create_video_writer(self, frame):
+        filepath = self.recorddir + 'recording.avi'
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        self.video_writer = cv2.VideoWriter(filepath, fourcc, 30.0, (frame.shape[1], frame.shape[0]))
+
+    def initialize_recording(self, frame, display_image):
         self.make_record_dir()
         self.save_config_as_json(self.recorddir + self.config_filename)
         self.save_intrinsic_as_json(self.recorddir + self.intrinsic_filename, frame)
+        if self.record_display_image:
+            self.create_video_writer(display_image)
+
+    def finalize_recording(self):
+        if not self.video_writer is None:
+            self.video_writer.release()
 
     def resize_depth_image(self, color, depth):
         color_width = color.shape[1]
@@ -151,8 +163,9 @@ class RecorderApp:
     def show_image(self, color, depth):
         depth_resized = self.resize_depth_image(color, depth)
         depth_colored = self.colorize_depth(depth_resized)
-        image_display = cv2.hconcat([color, depth_colored])
-        cv2.imshow('iPhone RGB-D', image_display)
+        display_image = cv2.hconcat([color, depth_colored])
+        cv2.imshow('iPhone RGB-D', display_image)
+        return display_image
 
     def save_rgbd_images(self, color, depth, rec_count):
         filename = str(rec_count).zfill(self.filename_zerofill)
@@ -162,29 +175,34 @@ class RecorderApp:
         cv2.imwrite(self.recorddir + self.sub_dir_depth_resized + filename + ".png", depth_resized)
 
     def start_processing_stream(self):
-        rec_count = self.frame_count_init
+        try:
+            rec_count = self.frame_count_init
 
-        while self.activate:
-            self.event.wait()
-            color, depth = self.get_rgbd_image()
-            self.show_image(color, depth)
+            while self.activate:
+                self.event.wait()
+                color, depth = self.get_rgbd_image()
+                display_image = self.show_image(color, depth)
 
-            key = cv2.waitKey(1) & 0xff
-            if key == ord('r'):
+                key = cv2.waitKey(1) & 0xff
+                if key == ord('r'):
+                    if self.recording:
+                        self.recording = False
+                        self.finalize_recording()
+                    else:
+                        self.recording = True
+                elif key == ord('q') or key == 27:
+                    cv2.destroyAllWindows()
+                    break
+
                 if self.recording:
-                    self.recording = False
-                else:
-                    self.recording = True
-            elif key == ord('q') or key == 27:
-                cv2.destroyAllWindows()
-                break
-
-            if self.recording:
-                if rec_count == self.frame_count_init:
-                    self.initialize_recording(color)
-                self.save_rgbd_images(color, depth, rec_count)
-                rec_count = rec_count + 1
-
+                    if rec_count == self.frame_count_init:
+                        self.initialize_recording(color, display_image)
+                    self.save_rgbd_images(color, depth, rec_count)
+                    rec_count = rec_count + 1
+                    if not self.video_writer is None:
+                        self.video_writer.write(display_image)
+        finally:
+            self.finalize_recording()
             self.event.clear()
 
 if __name__ == '__main__':
