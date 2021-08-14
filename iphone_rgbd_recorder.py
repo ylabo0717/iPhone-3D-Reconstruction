@@ -24,6 +24,7 @@ class RecorderApp:
         j = json.load(input_file)
         self.sub_dir_color = j['sub_dir_color']
         self.sub_dir_depth = j['sub_dir_depth']
+        self.sub_dir_depth_resized = j['sub_dir_depth_resized']
         self.filename_zerofill = j['filename_zerofill']
         self.intrinsic_filename = j['intrinsic_filename']
         self.frame_count_init = j['frme_count_init']
@@ -65,6 +66,7 @@ class RecorderApp:
         os.makedirs(self.recorddir)
         os.makedirs(self.recorddir + self.sub_dir_color)
         os.makedirs(self.recorddir + self.sub_dir_depth)
+        os.makedirs(self.recorddir + self.sub_dir_depth_resized)
 
     def save_config_as_json(self, filename):
         with open(filename, 'w') as outfile:
@@ -122,8 +124,7 @@ class RecorderApp:
         color = cv2.cvtColor(color_org, cv2.COLOR_RGB2BGR)
         depth_org = self.session.get_depth_frame()
         depth_mm = depth_org * 1000.0
-        depth_mm_u16 = np.clip(depth_mm.astype(np.uint16), 0, 65535)
-        depth = self.resize_depth_image(color, depth_mm_u16)
+        depth = np.clip(depth_mm.astype(np.uint16), 0, 65535)
         return color, depth
 
     def normalize_min_max(self, x, min, max):
@@ -148,14 +149,17 @@ class RecorderApp:
         return depth_colored
 
     def show_image(self, color, depth):
-        depth_colored = self.colorize_depth(depth)
+        depth_resized = self.resize_depth_image(color, depth)
+        depth_colored = self.colorize_depth(depth_resized)
         image_display = cv2.hconcat([color, depth_colored])
         cv2.imshow('iPhone RGB-D', image_display)
 
     def save_rgbd_images(self, color, depth, rec_count):
         filename = str(rec_count).zfill(self.filename_zerofill)
+        depth_resized = self.resize_depth_image(color, depth)
         cv2.imwrite(self.recorddir + self.sub_dir_color + filename + ".jpg", color)
         cv2.imwrite(self.recorddir + self.sub_dir_depth + filename + ".png", depth)
+        cv2.imwrite(self.recorddir + self.sub_dir_depth_resized + filename + ".png", depth_resized)
 
     def start_processing_stream(self):
         rec_count = self.frame_count_init

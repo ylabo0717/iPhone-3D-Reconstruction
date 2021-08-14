@@ -1,6 +1,7 @@
 {
     "sub_dir_color": "color/",
-    "sub_dir_depth": "depth/",
+    "sub_dir_depth": "depth_org/",
+    "sub_dir_depth_resized": "depth/",
     "filename_zerofill": 6,
     "intrinsic_filename": "camera_intrinsic.json",
     "frme_count_init": 1,
