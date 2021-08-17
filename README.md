@@ -1,6 +1,6 @@
 # 3D Reconstruction with iPhone and Open3D
 
-This is a toolchain for 3D Reconstruction with iPhone 12 Pro/Pro Max. 
+This is a toolchain for 3D Reconstruction with iPhone 12 Pro/Pro Max.   
 Tools for recording RGB-D data and 3D reconstruction are provided.
 
 ## Environment
@@ -71,7 +71,7 @@ Tools for recording RGB-D data and 3D reconstruction are provided.
 
 * Open3D Reconstruction System
 
-    Run the followint command.
+    Run the following command.
 
     ```bash
     ./Reconstruction.bat <data path>
@@ -92,7 +92,7 @@ Tools for recording RGB-D data and 3D reconstruction are provided.
 
 * Open3D VoxelHashingGUI
 
-    Run the followint command.
+    Run the following command.
 
     ```bash
     # CPU
@@ -112,6 +112,22 @@ Tools for recording RGB-D data and 3D reconstruction are provided.
     └── yyyy-mm-dd_HHMMSS
         └── scene.ply
     ```
+
+### 3. Visualization
+
+
+    Run the following command.
+
+    ```bash
+    ./visualizer_pcd.py <point cloud data path>
+
+    # example
+    python ./visualizer_pcd.py ./data/2021-08-13_012134/integrated.ply
+    ```
+
+    For more information, please visit the following website.
+    http://www.open3d.org/docs/latest/tutorial/Basic/visualization.html
+
 
 ## License
 
