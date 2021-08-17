@@ -23,9 +23,9 @@ Recording with iPhone + Record3D
 
 5. [PC] Execute Recoder on your PC.
 
-```bash
-python iphone_rgbd_recorder.py
-```
+    ```bash
+    python iphone_rgbd_recorder.py
+    ```
 
 6. [PC] Press the 'r' key in the RGBD Viewer window to start recording.
 
@@ -33,14 +33,14 @@ python iphone_rgbd_recorder.py
 
     The color and depth images are saved in ./data/yyyy--mm-dd_HHMMSS folder that can be used for Open3D Reconstruction System.
 
-```
-data
-└── yyyy-mm-dd_HHMMSS
-    ├── camera_intrinsic.json
-    ├── color
-    │   ├── 000000.jpg
-    │   ├── :
-    └── depth
-        ├── 000000.png
-        ├── :
-```
+    ```
+    data
+    └── yyyy-mm-dd_HHMMSS
+        ├── camera_intrinsic.json
+        ├── color
+        │   ├── 000000.jpg
+        │   ├── :
+        └── depth
+            ├── 000000.png
+            ├── :
+    ```
