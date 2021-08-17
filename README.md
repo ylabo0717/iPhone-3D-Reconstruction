@@ -1,4 +1,4 @@
-# iPhone RGBD Recorder
+# 3D Reconstruction with iPhone and Open3D
 
 ## Environment
 
@@ -53,46 +53,23 @@ pipenv shell
 
 ## Usage
 
-### Recording
+### 1. Recording
 
-1. [iPhone] Connect your iPhone to your PC via USB.
-
-2. [iPhone] Launch the Record3D app on your iPhone.
-
-    <img src="images/Record3D_001.png" width="256">
-
-3. [iPhone] Change Record3D Settings
-
-    <img src="images/Record3D_002.png" width="256">
-
-| item  |  value  |
-| :-: | :-: |
-| Live RGBD Video Streaming  | USB |
-| Higher quality LiDAR recording  | ON (Optional) |
+* [a) Recording with iPhone + Record3D](./doc/recording_with_record3d.md)
 
 
-4. [iPhone] Start Recording
+### 2. 3D Reconstrucion
 
-    <img src="images/Record3D_003.png" width="256">
-
-5. [PC] Execute Recoder on your PC.
+* Open3D Reconstruction System
 
 ```bash
-python iphone_rgbd_recorder.py
+.\Reconstruction.bat <data path>
+
+# example
+.\Reconstruction.bat .\data\2021-08-13_012134
 ```
 
-6. [PC] Press the 'r' key in the RGBD Viewer window to start recording.
-
-### Visualize
-
-```bash
-python visualizer.py <data path>
-
-#example
-python .\visualizer.py .\data\2021-08-13_012134
-```
-
-### 3D Reconstrucion (VoxelHashingGUI)
+* Open3D VoxelHashingGUI
 
 ```bash
 # CPU
@@ -105,13 +82,14 @@ python .\visualizer.py .\data\2021-08-13_012134
 .\VoxelHashingGUI.bat .\data\2021-08-13_012134
 ```
 
-### 3D Reconstrucion (Open3D Reconstruction System)
+### Visualize
 
 ```bash
-.\Reconstruction.bat <config file path>
+python visualizer.py <data path>
 
-# example
-.\Reconstruction.bat .\data\2021-08-13_012134\config.json
+#example
+python .\visualizer.py .\data\2021-08-13_012134
 ```
+
 
 
