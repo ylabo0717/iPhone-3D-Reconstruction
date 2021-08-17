@@ -36,51 +36,51 @@
 
 * Git Clone and Install Package
 
-```bash
-git clone --recursive https://github.com/ylabo0717/iPhone-RGBD-Recorder.git
+    ```bash
+    git clone --recursive https://github.com/ylabo0717/iPhone-RGBD-Recorder.git
 
-# You can also update the submodule manually
-git submodule update --init --recursive
-```
+    # You can also update the submodule manually
+    git submodule update --init --recursive
+    ```
 
 * Install Package (Sync Virtual Envirioment)
 
-```bash
-cd iPhone-RGBD-Recorder
-pipenv sync
-pipenv shell
-```
+    ```bash
+    cd iPhone-RGBD-Recorder
+    pipenv sync
+    pipenv shell
+    ```
 
 ## Usage
 
 ### 1. Recording
 
-* [Recording with iPhone + Record3D](./doc/recording_with_record3d.md)
+  * [Recording with iPhone + Record3D](./doc/recording_with_record3d.md)
 
 
 ### 2. 3D Reconstrucion
 
 * Open3D Reconstruction System
 
-```bash
-.\Reconstruction.bat <data path>
+    ```bash
+    .\Reconstruction.bat <data path>
 
-# example
-.\Reconstruction.bat .\data\2021-08-13_012134
-```
+    # example
+    .\Reconstruction.bat .\data\2021-08-13_012134
+    ```
 
 * Open3D VoxelHashingGUI
 
-```bash
-# CPU
-.\VoxelHashingGUI.bat <data path>
+    ```bash
+    # CPU
+    .\VoxelHashingGUI.bat <data path>
 
-# CUDA
-.\VoxelHashingGUI_cuda.bat <data path>
+    # CUDA
+    .\VoxelHashingGUI_cuda.bat <data path>
 
-# example
-.\VoxelHashingGUI.bat .\data\2021-08-13_012134
-```
+    # example
+    .\VoxelHashingGUI.bat .\data\2021-08-13_012134
+    ```
 
 
 
