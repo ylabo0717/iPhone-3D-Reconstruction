@@ -62,6 +62,8 @@
 
 * Open3D Reconstruction System
 
+    Run the followint command.
+
     ```bash
     .\Reconstruction.bat <data path>
 
@@ -69,7 +71,19 @@
     .\Reconstruction.bat .\data\2021-08-13_012134
     ```
 
+    The integrated.ply file are saved in <data path>/scene/ folder.
+
+    ```
+    data
+    └── yyyy-mm-dd_HHMMSS
+        └── scene
+             └── integrated.ply
+    ```
+
+
 * Open3D VoxelHashingGUI
+
+    Run the followint command.
 
     ```bash
     # CPU
@@ -82,6 +96,13 @@
     .\VoxelHashingGUI.bat .\data\2021-08-13_012134
     ```
 
+    The integrated.ply file are saved in <data path>/scene/ folder.
+
+    ```
+    data
+    └── yyyy-mm-dd_HHMMSS
+        └── scene.ply
+    ```
 
 
 
