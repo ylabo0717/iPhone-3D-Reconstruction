@@ -1,5 +1,8 @@
 # 3D Reconstruction with iPhone and Open3D
 
+This is a toolchain for 3D Reconstruction with iPhone 12 Pro/Pro Max. 
+Tools for recording RGB-D data and 3D reconstruction are provided.
+
 ## Environment
 
 ### Hardware
@@ -20,7 +23,7 @@
     - [record3d](https://github.com/marek-simonik/record3d) 1.3.0
     - [open3d](https://github.com/isl-org/Open3D) 0.13.0
 
-## Install
+## Installation
 
 ### iPhone
 
@@ -110,3 +113,6 @@
         └── scene.ply
     ```
 
+## License
+
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
