@@ -55,7 +55,7 @@ pipenv shell
 
 ### 1. Recording
 
-* [a) Recording with iPhone + Record3D](./doc/recording_with_record3d.md)
+* [Recording with iPhone + Record3D](./doc/recording_with_record3d.md)
 
 
 ### 2. 3D Reconstrucion
@@ -82,14 +82,6 @@ pipenv shell
 .\VoxelHashingGUI.bat .\data\2021-08-13_012134
 ```
 
-### Visualize
-
-```bash
-python visualizer.py <data path>
-
-#example
-python .\visualizer.py .\data\2021-08-13_012134
-```
 
 
 
