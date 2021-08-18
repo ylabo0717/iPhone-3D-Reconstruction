@@ -3,6 +3,11 @@
 This is a toolchain for 3D Reconstruction with iPhone 12 Pro/Pro Max.   
 Tools for recording RGB-D data and 3D reconstruction are provided.
 
+
+## 3D Model Example
+
+https://skfb.ly/opuAL
+
 ## Environment
 
 ### Hardware
