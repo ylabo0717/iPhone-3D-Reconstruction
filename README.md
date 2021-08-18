@@ -115,18 +115,17 @@ Tools for recording RGB-D data and 3D reconstruction are provided.
 
 ### 3. Visualization
 
+Run the following command.
 
-    Run the following command.
+```bash
+./visualizer_pcd.py <point cloud data path>
 
-    ```bash
-    ./visualizer_pcd.py <point cloud data path>
+# example
+python ./visualizer_pcd.py ./data/2021-08-13_012134/integrated.ply
+```
 
-    # example
-    python ./visualizer_pcd.py ./data/2021-08-13_012134/integrated.ply
-    ```
-
-    For more information, please visit the following website.
-    http://www.open3d.org/docs/latest/tutorial/Basic/visualization.html
+For more information, please visit the following website.
+http://www.open3d.org/docs/latest/tutorial/Basic/visualization.html
 
 
 ## License
