@@ -10,3 +10,4 @@ pushd .\3rdparty\Open3D\examples\python\reconstruction_system\
 python run_system.py %~dp0%CONFIG_PATH% --make --register --refine --integrate
 popd
 python rotate_point_cloud.py %OUTPUT_PLY_FILENAME% %OUTPUT_PLY_FILENAME% 180 0 0
+python visualizer_pcd.py %OUTPUT_PLY_FILENAME%
