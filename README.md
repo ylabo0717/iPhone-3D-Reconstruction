@@ -3,6 +3,9 @@
 This is a toolchain for 3D Reconstruction with iPhone 12 Pro/Pro Max.   
 Tools for recording RGB-D data and 3D reconstruction are provided.
 
+## Demo
+
+[![](https://img.youtube.com/vi/mg64PCfr1u8/0.jpg)](https://www.youtube.com/watch?v=mg64PCfr1u8)
 
 ## 3D Model Example
 
