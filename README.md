@@ -88,7 +88,7 @@ https://skfb.ly/opuAL
     ./Reconstruction.bat ./data/2021-08-13_012134
     ```
 
-    The integrated.ply file are saved in <data path>/scene/ folder.
+    The integrated.ply file will be saved in <data path>/scene/ folder.
 
     ```
     data
@@ -113,7 +113,7 @@ https://skfb.ly/opuAL
     ./VoxelHashingGUI.bat ./data/2021-08-13_012134
     ```
 
-    The integrated.ply file are saved in <data path>/scene/ folder.
+    The integrated.ply file will be saved in <data path>/scene/ folder.
 
     ```
     data
