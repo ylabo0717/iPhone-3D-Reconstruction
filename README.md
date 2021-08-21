@@ -54,8 +54,7 @@ https://skfb.ly/opuAL
 * Git Clone and Install Package
 
     ```bash
-    git clone --recursive https://github.com/ylabo0717/iPhone-RGBD-Recorder.git
-
+    git clone --recursive https://github.com/ylabo0717/iPhone-3D-Reconstruction.git
     # You can also update the submodule manually
     git submodule update --init --recursive
     ```
@@ -63,7 +62,7 @@ https://skfb.ly/opuAL
 * Install Package (Sync Virtual Envirioment)
 
     ```bash
-    cd iPhone-RGBD-Recorder
+    cd iPhone-3D-Reconstruction
     pipenv sync
     pipenv shell
     ```
