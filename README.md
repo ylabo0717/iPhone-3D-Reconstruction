@@ -3,6 +3,9 @@
 This is a toolchain for 3D Reconstruction with iPhone 12 Pro/Pro Max.   
 Tools for recording RGB-D data and 3D reconstruction are provided.
 
+## Demo
+
+[![](https://img.youtube.com/vi/mg64PCfr1u8/0.jpg)](https://www.youtube.com/watch?v=mg64PCfr1u8)
 
 ## 3D Model Example
 
@@ -51,8 +54,7 @@ https://skfb.ly/opuAL
 * Git Clone and Install Package
 
     ```bash
-    git clone --recursive https://github.com/ylabo0717/iPhone-RGBD-Recorder.git
-
+    git clone --recursive https://github.com/ylabo0717/iPhone-3D-Reconstruction.git
     # You can also update the submodule manually
     git submodule update --init --recursive
     ```
@@ -60,7 +62,7 @@ https://skfb.ly/opuAL
 * Install Package (Sync Virtual Envirioment)
 
     ```bash
-    cd iPhone-RGBD-Recorder
+    cd iPhone-3D-Reconstruction
     pipenv sync
     pipenv shell
     ```
@@ -85,7 +87,7 @@ https://skfb.ly/opuAL
     ./Reconstruction.bat ./data/2021-08-13_012134
     ```
 
-    The integrated.ply file are saved in <data path>/scene/ folder.
+    The integrated.ply file will be saved in <data path>/scene/ folder.
 
     ```
     data
@@ -110,7 +112,7 @@ https://skfb.ly/opuAL
     ./VoxelHashingGUI.bat ./data/2021-08-13_012134
     ```
 
-    The integrated.ply file are saved in <data path>/scene/ folder.
+    The integrated.ply file will be saved in <data path>/scene/ folder.
 
     ```
     data
