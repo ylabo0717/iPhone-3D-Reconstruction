@@ -10,7 +10,7 @@ if __name__ == "__main__":
                     width=1280, height=960)
     vis.add_geometry(pcd)
     render_opt = vis.get_render_option()
-    render_opt.point_size = 1.0
+    render_opt.point_size = 2.0
 
     while True:
         if vis.poll_events():
