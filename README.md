@@ -11,6 +11,10 @@ Tools for recording RGB-D data and 3D reconstruction are provided.
 
 https://skfb.ly/opuAL
 
+## Dataset
+
+https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=sharing
+
 ## Environment
 
 ### Hardware
