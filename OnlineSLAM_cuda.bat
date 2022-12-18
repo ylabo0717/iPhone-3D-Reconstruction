@@ -1,0 +1,1 @@
+call OnlineSLAM.bat %1 CUDA:0

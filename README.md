@@ -1,6 +1,6 @@
 # 3D Reconstruction with iPhone and Open3D
 
-This is a toolchain for 3D Reconstruction with iPhone 12 Pro/Pro Max.   
+This is a toolchain for 3D Reconstruction with iPhone 14 Pro/Pro Max.   
 Tools for recording RGB-D data and 3D reconstruction are provided.
 
 ## Demo
@@ -19,7 +19,7 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
 
 ### Hardware
 
-* iPhone 12 Pro/Pro Max
+* iPhone 14 Pro/Pro Max
 * Windows PC
 
 ### iPhone App
@@ -29,11 +29,11 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
 ### PC Software
 
 * Windows 10
-* Python 3.8.10
+* Python 3.10
 * Python Package
-    - [opencv-python](https://github.com/opencv/opencv) 4.5.3.56
-    - [record3d](https://github.com/marek-simonik/record3d) 1.3.0
-    - [open3d](https://github.com/isl-org/Open3D) 0.13.0
+    - [opencv-python](https://github.com/opencv/opencv) 4.6.0.66
+    - [record3d](https://github.com/marek-simonik/record3d) 1.3.1
+    - [open3d](https://github.com/isl-org/Open3D) 0.16.0
 
 ## Installation
 
@@ -49,11 +49,6 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
 
     https://www.python.org/downloads/windows/
 
-* Install pipenv
-
-    ```bash
-    pip install pipenv
-    ```
 
 * Git Clone and Install Package
 
@@ -67,8 +62,7 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
 
     ```bash
     cd iPhone-3D-Reconstruction
-    pipenv sync
-    pipenv shell
+    pip install -r requirements.txt
     ```
 
 ## Usage
@@ -88,7 +82,7 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
     ./Reconstruction.bat <data path>
 
     # example
-    ./Reconstruction.bat ./data/2021-08-13_012134
+    ./Reconstruction.bat ./data/2022-12-16_202619
     ```
 
     The integrated.ply file will be saved in <data path>/scene/ folder.
@@ -101,19 +95,19 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
     ```
 
 
-* Open3D VoxelHashingGUI
+* Open3D OnlineSLAM
 
     Run the following command.
 
     ```bash
     # CPU
-    ./VoxelHashingGUI.bat <data path>
+    ./OnlineSLAM.bat <data path>
 
     # CUDA
-    ./VoxelHashingGUI_cuda.bat <data path>
+    ./OnlineSLAM_cuda.bat <data path>
 
     # example
-    ./VoxelHashingGUI.bat ./data/2021-08-13_012134
+    ./OnlineSLAM.bat ./data/2022-12-16_202619
     ```
 
     The integrated.ply file will be saved in <data path>/scene/ folder.
@@ -132,7 +126,7 @@ Run the following command.
 ./visualizer_pcd.py <point cloud data path>
 
 # example
-python ./visualizer_pcd.py ./data/2021-08-13_012134/integrated.ply
+python ./visualizer_pcd.py ./data/2022-12-16_202619/integrated.ply
 ```
 
 For more information, please visit the following website.

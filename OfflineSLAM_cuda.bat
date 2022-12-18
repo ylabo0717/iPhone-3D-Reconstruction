@@ -1,0 +1,1 @@
+call OfflineSLAM.bat %1 CUDA:0
