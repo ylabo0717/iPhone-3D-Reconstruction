@@ -1,1 +1,0 @@
-call VoxelHashingGUI.bat %1 CUDA:0

@@ -34,6 +34,7 @@ class RecorderApp:
         self.depth_colorize_min = j['depth_colorize_min']
         self.depth_colorize_max = j['depth_colorize_max']
         self.record_display_image = j['record_display_image']
+        self.viewer_resize_factor = j['viewer_resize_factor']
 
     def on_new_frame(self):
         self.event.set()
@@ -76,9 +77,9 @@ class RecorderApp:
                     "name": "iPhone LiDAR 3D Reconstruction",
                     "path_dataset": self.recorddir,
                     "path_intrinsic": self.recorddir + self.intrinsic_filename,
-                    "max_depth": 3.0,
+                    "depth_max": 3.0,
                     "voxel_size": 0.05,
-                    "max_depth_diff": 0.07,
+                    "depth_diff_max": 0.07,
                     "preference_loop_closure_odometry": 0.1,
                     "preference_loop_closure_registration": 5.0,
                     "tsdf_cubic_size": 3.0,
@@ -135,7 +136,7 @@ class RecorderApp:
         color_org = self.session.get_rgb_frame()
         color = cv2.cvtColor(color_org, cv2.COLOR_RGB2BGR)
         depth_org = self.session.get_depth_frame()
-        depth_mm = depth_org * 1000.0
+        depth_mm = depth_org.astype(np.float64) * 1000.0
         depth = np.clip(depth_mm.astype(np.uint16), 0, 65535)
         return color, depth
 
@@ -161,9 +162,10 @@ class RecorderApp:
         return depth_colored
 
     def show_image(self, color, depth):
-        depth_resized = self.resize_depth_image(color, depth)
+        color_resized = cv2.resize(color, dsize=None, fx=self.viewer_resize_factor, fy=self.viewer_resize_factor)
+        depth_resized = self.resize_depth_image(color_resized, depth)
         depth_colored = self.colorize_depth(depth_resized)
-        display_image = cv2.hconcat([color, depth_colored])
+        display_image = cv2.hconcat([color_resized, depth_colored])
         cv2.imshow('iPhone RGB-D', display_image)
         return display_image
 

@@ -10,5 +10,6 @@
     "depth_colorize_fixed_range": true,
     "depth_colorize_min": 0,
     "depth_colorize_max": 3000,
-    "record_display_image":true
+    "record_display_image":true,
+    "viewer_resize_factor":0.5
 }
