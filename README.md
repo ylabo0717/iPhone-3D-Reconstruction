@@ -97,6 +97,10 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
 
 * Open3D OnlineSLAM
 
+    Download the bellow zip file and extract it.  
+
+    https://drive.google.com/file/d/13MgkJvk39FLkLzzEL6TDKsKE8dVlcF6l/view?usp=sharing
+
     Run the following command.
 
     ```bash
