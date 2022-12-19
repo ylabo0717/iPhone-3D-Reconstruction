@@ -11,7 +11,7 @@ Tools for recording RGB-D data and 3D reconstruction are provided.
 
 https://skfb.ly/opuAL
 
-## Dataset
+## Sample Dataset
 
 https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=sharing
 
@@ -34,6 +34,7 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
     - [opencv-python](https://github.com/opencv/opencv) 4.6.0.66
     - [record3d](https://github.com/marek-simonik/record3d) 1.3.1
     - [open3d](https://github.com/isl-org/Open3D) 0.16.0
+    - [numpy](https://numpy.org/) 1.23.4
 
 ## Installation
 
