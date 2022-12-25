@@ -11,9 +11,6 @@ Tools for recording RGB-D data and 3D reconstruction are provided.
 
 https://skfb.ly/opuAL
 
-## Sample Dataset
-
-https://drive.google.com/file/d/15BpnsuWo2beH8rNDpTC-3vjyt6cv0q4B/view?usp=sharing
 
 ## Environment
 
@@ -72,6 +69,16 @@ https://drive.google.com/file/d/15BpnsuWo2beH8rNDpTC-3vjyt6cv0q4B/view?usp=shari
 
   * [Recording with iPhone + Record3D](./doc/recording_with_record3d.md)
 
+    Recorded data is stored as follows.
+
+    ```
+    data
+    └── yyyy-mm-dd_HHMMSS
+    ```
+
+    If you wish to use the sample data without recording, please download and extract the data below.
+
+    https://drive.google.com/file/d/15BpnsuWo2beH8rNDpTC-3vjyt6cv0q4B/view?usp=sharing
 
 ### 2. 3D Reconstrucion
 
