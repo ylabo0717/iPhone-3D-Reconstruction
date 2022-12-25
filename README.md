@@ -13,7 +13,7 @@ https://skfb.ly/opuAL
 
 ## Sample Dataset
 
-https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=sharing
+https://drive.google.com/file/d/15BpnsuWo2beH8rNDpTC-3vjyt6cv0q4B/view?usp=sharing
 
 ## Environment
 
@@ -83,7 +83,7 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
     ./Reconstruction.bat <data path>
 
     # example
-    ./Reconstruction.bat ./data/2022-12-16_202619
+    ./Reconstruction.bat ./data/2022-12-25_153726
     ```
 
     The integrated.ply file will be saved in <data path>/scene/ folder.
@@ -91,8 +91,7 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
     ```
     data
     └── yyyy-mm-dd_HHMMSS
-        └── scene
-             └── integrated.ply
+        └── scene.ply
     ```
 
 
@@ -101,6 +100,13 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
     Download the bellow zip file and extract it.  
 
     https://drive.google.com/file/d/13MgkJvk39FLkLzzEL6TDKsKE8dVlcF6l/view?usp=sharing
+
+    ```
+    <This directory>
+    └── Release
+    |     OnlineSLAMRGBD.exe
+    └── resources
+    ```
 
     Run the following command.
 
@@ -112,10 +118,12 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
     ./OnlineSLAM_cuda.bat <data path>
 
     # example
-    ./OnlineSLAM.bat ./data/2022-12-16_202619
+    ./OnlineSLAM.bat ./data/2022-12-25_153726
     ```
 
-    The integrated.ply file will be saved in <data path>/scene/ folder.
+    ![](./images/open3d_online_slam.png)
+
+    The scene.ply file will be saved in <data path> folder.
 
     ```
     data
@@ -123,7 +131,6 @@ https://drive.google.com/file/d/1VpPpv27ai7g-fK3EEVo5zacZPFd073t6/view?usp=shari
         └── scene.ply
     ```
 
-### 3. Visualization
 
 Run the following command.
 
@@ -131,8 +138,11 @@ Run the following command.
 ./visualizer_pcd.py <point cloud data path>
 
 # example
-python ./visualizer_pcd.py ./data/2022-12-16_202619/integrated.ply
+python ./visualizer_pcd.py ./data/2022-12-25_153726/scene/integrated.ply
 ```
+
+![](./images/visualizer_pcd.png)
+
 
 For more information, please visit the following website.
 http://www.open3d.org/docs/latest/tutorial/Basic/visualization.html
