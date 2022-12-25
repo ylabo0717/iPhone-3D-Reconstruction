@@ -64,7 +64,8 @@ class RecorderApp:
 
     def make_record_dir(self):
         now = datetime.datetime.now()
-        self.recorddir = self.recorddir_root + now.strftime(self.dir_name_format) + "/"
+        self.save_dir_name = now.strftime(self.dir_name_format) + "/"
+        self.recorddir = self.recorddir_root + self.save_dir_name
         os.makedirs(self.recorddir)
         os.makedirs(self.recorddir + self.sub_dir_color)
         os.makedirs(self.recorddir + self.sub_dir_depth)
@@ -75,8 +76,8 @@ class RecorderApp:
             obj = json.dump(
                 {
                     "name": "iPhone LiDAR 3D Reconstruction",
-                    "path_dataset": self.recorddir,
-                    "path_intrinsic": self.recorddir + self.intrinsic_filename,
+                    "path_dataset": "../../../../../data/" + self.save_dir_name,
+                    "path_intrinsic": "../../../../../data/" + self.save_dir_name + self.intrinsic_filename,
                     "depth_max": 3.0,
                     "voxel_size": 0.05,
                     "depth_diff_max": 0.07,
@@ -172,7 +173,7 @@ class RecorderApp:
     def save_rgbd_images(self, color, depth, rec_count):
         filename = str(rec_count).zfill(self.filename_zerofill)
         depth_resized = self.resize_depth_image(color, depth)
-        cv2.imwrite(self.recorddir + self.sub_dir_color + filename + ".jpg", color)
+        cv2.imwrite(self.recorddir + self.sub_dir_color + filename + ".png", color)
         cv2.imwrite(self.recorddir + self.sub_dir_depth + filename + ".png", depth)
         cv2.imwrite(self.recorddir + self.sub_dir_depth_resized + filename + ".png", depth_resized)
 
