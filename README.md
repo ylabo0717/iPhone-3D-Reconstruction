@@ -128,8 +128,11 @@ https://skfb.ly/opuAL
     ./OnlineSLAM.bat ./data/2022-12-25_153726
     ```
 
+    Click the [Pause/Resume] switch.
+
     ![](./images/open3d_online_slam.png)
 
+    Close the application when SLAM is finished.
     The scene.ply file will be saved in <data path> folder.
 
     ```
