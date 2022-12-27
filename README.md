@@ -80,7 +80,7 @@ https://skfb.ly/opuAL
 
     https://drive.google.com/file/d/15BpnsuWo2beH8rNDpTC-3vjyt6cv0q4B/view?usp=sharing
 
-### 2. 3D Reconstrucion
+### 2. 3D Reconstruction
 
 * Open3D Reconstruction System
 
