@@ -128,5 +128,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Data
+# ignore directories
 data/
+resources/
+Release/
+
+# ignore files
+*.zip
