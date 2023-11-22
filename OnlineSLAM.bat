@@ -8,5 +8,5 @@ set DATA_PATH=%~dp0%1
 set INTRINSIC_FILE_PATH=%DATA_PATH%\camera_intrinsic.json
 pushd .\Release\
 .\OnlineSLAMRGBD.exe --dataset_path %DATA_PATH% --intrinsics_path %INTRINSIC_FILE_PATH% --device %DEVICE%
-python rotate_point_cloud.py .\scene.ply %DATA_PATH%\scene.ply 180 0 0
+python ..\rotate_point_cloud.py .\scene.ply %DATA_PATH%\scene.ply 180 0 0
 popd
