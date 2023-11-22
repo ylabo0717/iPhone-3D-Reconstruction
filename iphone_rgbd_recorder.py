@@ -138,7 +138,7 @@ class RecorderApp:
         color = cv2.cvtColor(color_org, cv2.COLOR_RGB2BGR)
         depth_org = self.session.get_depth_frame()
         depth_mm = depth_org.astype(np.float64) * 1000.0
-        depth = np.clip(depth_mm.astype(np.uint16), 0, 65535)
+        depth = np.clip(depth_mm, 0, 65535).astype(np.uint16)
         return color, depth
 
     def normalize_min_max(self, x, min, max):
@@ -157,7 +157,7 @@ class RecorderApp:
         else:
             min = depth.min()
             max = depth.max()
-        depth_clipped = np.clip(depth.astype(np.uint16), min, max)
+        depth_clipped = np.clip(depth, min, max).astype(np.uint16)
         depth_normalized = self.normalize_min_max(depth_clipped, min, max)
         depth_colored = cv2.applyColorMap(cv2.convertScaleAbs(depth_normalized, alpha=255.0), cv2.COLORMAP_JET)
         return depth_colored
