@@ -16,7 +16,7 @@ https://skfb.ly/opuAL
 
 ### Hardware
 
-* iPhone 14 Pro/Pro Max
+* iPhone 14 Pro/Pro Max or 15 Pro/Pro Max
 * Windows PC
 
 ### iPhone App
@@ -28,10 +28,10 @@ https://skfb.ly/opuAL
 * Windows 10
 * Python 3.10
 * Python Package
-    - [opencv-python](https://github.com/opencv/opencv) 4.6.0.66
+    - [opencv-python](https://github.com/opencv/opencv) 4.8.1
     - [record3d](https://github.com/marek-simonik/record3d) 1.3.1
-    - [open3d](https://github.com/isl-org/Open3D) 0.16.0
-    - [numpy](https://numpy.org/) 1.23.4
+    - [open3d](https://github.com/isl-org/Open3D) 0.17.0
+    - [numpy](https://numpy.org/) 1.26.2
 
 ## Installation
 
