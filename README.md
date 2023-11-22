@@ -111,6 +111,7 @@ https://skfb.ly/opuAL
     ```
     <This directory>
     └── Release
+    |     OfflineSLAM.exe
     |     OnlineSLAMRGBD.exe
     └── resources
     ```
