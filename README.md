@@ -82,26 +82,6 @@ https://skfb.ly/opuAL
 
 ### 2. 3D Reconstruction
 
-* Open3D Reconstruction System
-
-    Run the following command.
-
-    ```bash
-    ./Reconstruction.bat <data path>
-
-    # example
-    ./Reconstruction.bat ./data/2022-12-25_153726
-    ```
-
-    The integrated.ply file will be saved in <data path>/scene/ folder.
-
-    ```
-    data
-    └── yyyy-mm-dd_HHMMSS
-        └── scene.ply
-    ```
-
-
 * Open3D OnlineSLAM
 
     Download the bellow zip file and extract it.  
@@ -110,7 +90,7 @@ https://skfb.ly/opuAL
 
     ```
     <This directory>
-    └── Release
+    └── open3d_bin
     |     OfflineSLAM.exe
     |     OnlineSLAMRGBD.exe
     └── resources
