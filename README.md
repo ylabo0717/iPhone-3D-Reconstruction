@@ -78,7 +78,8 @@ https://skfb.ly/opuAL
 
     If you wish to use the sample data without recording, please download and extract the data below.
 
-    https://drive.google.com/file/d/15BpnsuWo2beH8rNDpTC-3vjyt6cv0q4B/view?usp=sharing
+    https://drive.google.com/file/d/1meQePVfVVEM1qPjwnwsnfL_2Y2mGCAm7/view?usp=sharing
+
 
 ### 2. 3D Reconstruction
 
@@ -106,7 +107,7 @@ https://skfb.ly/opuAL
     ./OnlineSLAM_cuda.bat <data path>
 
     # example
-    ./OnlineSLAM.bat ./data/2022-12-25_153726
+    ./OnlineSLAM.bat ./data/2023-12-03_163505
     ```
 
     Click the [Pause/Resume] switch.
@@ -129,7 +130,7 @@ Run the following command.
 ./visualizer_pcd.py <point cloud data path>
 
 # example
-python ./visualizer_pcd.py ./data/2022-12-25_153726/scene/integrated.ply
+python ./visualizer_pcd.py ./data/2023-12-03_163505/scene/integrated.ply
 ```
 
 ![](./images/visualizer_pcd.png)
